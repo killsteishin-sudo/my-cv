@@ -69,5 +69,57 @@
       </a>
     </p>
   </main>
+  
+<!-- Halloween theme: automatically expires on November 12 -->
+<script>
+  const today = new Date();
+  const halloweenDay =
+    today.getFullYear() === 2026 &&
+    today.getMonth() === 10 &&
+    today.getDate() === 11;
+
+  if (halloweenDay) {
+    const style = document.createElement("style");
+    style.textContent = `
+      body {
+        background: radial-gradient(circle at top, #562000, #090309 75%);
+        color: #fff3df;
+      }
+      main {
+        background: #1d101b;
+        border: 2px solid #ff7900;
+        box-shadow: 0 0 55px #ff790055;
+        animation: glow 3s infinite alternate;
+      }
+      h1 {
+        color: #ff8c00;
+        text-shadow: 0 0 22px #ff7900;
+      }
+      h2, a { color: #ff9d2e; }
+      .tag {
+        background: #422016;
+        border: 1px solid #ff7900;
+      }
+      @keyframes glow {
+        from { box-shadow: 0 0 15px #ff790044; }
+        to { box-shadow: 0 0 60px #ff790099; }
+      }
+      .halloween-banner {
+        text-align: center;
+        font-size: 24px;
+        padding: 18px;
+        color: #ffae42;
+        font-weight: bold;
+      }
+    `;
+    document.head.appendChild(style);
+
+    const banner = document.createElement("div");
+    banner.className = "halloween-banner";
+    banner.textContent = "🎃 HAPPY HALLOWEEN 👻";
+    document.querySelector("main").prepend(banner);
+  }
+</script>
+
 </body>
 </html>

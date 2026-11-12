@@ -5,8 +5,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>My CV | Portfolio</title>
+
   <style>
     * { box-sizing: border-box; }
+
     body {
       margin: 0;
       background: #0b1020;
@@ -14,6 +16,7 @@
       font-family: Arial, sans-serif;
       line-height: 1.6;
     }
+
     main {
       max-width: 850px;
       margin: 70px auto;
@@ -22,9 +25,19 @@
       border: 1px solid #334155;
       border-radius: 24px;
     }
-    h1 { font-size: 48px; margin-bottom: 5px; }
-    h2 { color: #38bdf8; margin-top: 35px; }
+
+    h1 {
+      font-size: 48px;
+      margin-bottom: 5px;
+    }
+
+    h2 {
+      color: #38bdf8;
+      margin-top: 35px;
+    }
+
     p { color: #cbd5e1; }
+
     .tag {
       display: inline-block;
       padding: 8px 15px;
@@ -32,22 +45,79 @@
       border-radius: 20px;
       background: #26344c;
     }
+
     a { color: #38bdf8; }
-    @media(max-width:600px) {
-      main { margin: 15px; padding: 25px; }
+
+    .new-year-timer {
+      margin-top: 45px;
+      padding: 30px 20px;
+      border-radius: 22px;
+      text-align: center;
+      background: linear-gradient(135deg, #102a43, #182848);
+      border: 1px solid #38bdf8;
+      box-shadow: 0 0 30px rgba(56,189,248,.15);
+      color: white;
+    }
+
+    .new-year-timer h2 {
+      color: #facc15;
+      font-size: 29px;
+      margin: 0 0 10px;
+    }
+
+    .new-year-timer p { color: #cbd5e1; }
+
+    .timer-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin-top: 25px;
+    }
+
+    .timer-box {
+      background: rgba(255,255,255,.1);
+      padding: 18px 5px;
+      border-radius: 14px;
+    }
+
+    .timer-number {
+      display: block;
+      font-size: 32px;
+      font-weight: bold;
+      color: #fff;
+    }
+
+    .timer-label {
+      font-size: 11px;
+      color: #cbd5e1;
+    }
+
+    @media (max-width: 600px) {
+      main {
+        margin: 15px;
+        padding: 25px;
+      }
+
       h1 { font-size: 34px; }
+    }
+
+    @media (max-width: 500px) {
+      .timer-grid { gap: 5px; }
+      .timer-number { font-size: 22px; }
+      .timer-box { padding: 12px 3px; }
     }
   </style>
 </head>
+
 <body>
   <main>
     <h1>My Portfolio</h1>
-    <p>Junior Developer | IT Enthusiast</p>
+    <p>Junior Developer | IT Enthusiast | Cybersecurity Student</p>
 
     <h2>About Me</h2>
     <p>
       I'm passionate about technology, programming,
-      Docker, Linux and web development.
+      Docker, Linux, cybersecurity and web development.
     </p>
 
     <h2>Skills</h2>
@@ -56,10 +126,13 @@
     <span class="tag">Docker</span>
     <span class="tag">Linux</span>
     <span class="tag">Networking</span>
+    <span class="tag">Cybersecurity</span>
 
     <h2>Projects</h2>
-    <p>Docker Web Server, Minecraft Server,
-       Nextcloud and GitLab.</p>
+    <p>
+      Docker Web Server, Minecraft Server,
+      Nextcloud and GitLab.
+    </p>
 
     <h2>Contact</h2>
     <p>
@@ -68,133 +141,78 @@
         killsteishin-sudo
       </a>
     </p>
-    
-<!-- NEW YEAR COUNTDOWN TIMER -->
-<style>
-  .new-year-timer {
-    margin-top: 45px;
-    padding: 30px 20px;
-    border-radius: 22px;
-    text-align: center;
-    background: linear-gradient(135deg, #102a43, #182848);
-    border: 1px solid #38bdf8;
-    box-shadow: 0 0 30px rgba(56,189,248,.15);
-    color: white;
-  }
 
-  .new-year-timer h2 {
-    color: #facc15;
-    font-size: 29px;
-    margin: 0 0 10px;
-  }
+    <!-- NEW YEAR COUNTDOWN TIMER -->
+    <section class="new-year-timer">
+      <h2>🎄 NEW YEAR 2027 🎆</h2>
+      <p>Countdown to January 1, 2027</p>
 
-  .new-year-timer p {
-    color: #cbd5e1;
-  }
+      <div class="timer-grid">
+        <div class="timer-box">
+          <span class="timer-number" id="days">00</span>
+          <span class="timer-label">DAYS</span>
+        </div>
 
-  .timer-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 12px;
-    margin-top: 25px;
-  }
+        <div class="timer-box">
+          <span class="timer-number" id="hours">00</span>
+          <span class="timer-label">HOURS</span>
+        </div>
 
-  .timer-box {
-    background: rgba(255,255,255,.1);
-    padding: 18px 5px;
-    border-radius: 14px;
-  }
+        <div class="timer-box">
+          <span class="timer-number" id="minutes">00</span>
+          <span class="timer-label">MINUTES</span>
+        </div>
 
-  .timer-number {
-    display: block;
-    font-size: 32px;
-    font-weight: bold;
-    color: #fff;
-  }
+        <div class="timer-box">
+          <span class="timer-number" id="seconds">00</span>
+          <span class="timer-label">SECONDS</span>
+        </div>
+      </div>
 
-  .timer-label {
-    font-size: 11px;
-    color: #cbd5e1;
-  }
+      <p id="new-year-message">✨ The magic is coming! ✨</p>
+    </section>
+    <!-- END NEW YEAR TIMER -->
+  </main>
 
-  @media(max-width: 500px) {
-    .timer-grid { gap: 5px; }
-    .timer-number { font-size: 22px; }
-    .timer-box { padding: 12px 3px; }
-  }
-</style>
+  <script>
+    const newYear = new Date("2027-01-01T00:00:00");
 
-<section class="new-year-timer">
-  <h2>🎄 NEW YEAR 2027 🎆</h2>
-  <p>Countdown to January 1, 2027</p>
+    function updateTimer() {
+      const difference = newYear.getTime() - Date.now();
 
-  <div class="timer-grid">
-    <div class="timer-box">
-      <span class="timer-number" id="days">00</span>
-      <span class="timer-label">DAYS</span>
-    </div>
+      if (difference <= 0) {
+        document.getElementById("new-year-message")
+          .textContent = "🎉 HAPPY NEW YEAR 2027! 🎉";
 
-    <div class="timer-box">
-      <span class="timer-number" id="hours">00</span>
-      <span class="timer-label">HOURS</span>
-    </div>
+        ["days", "hours", "minutes", "seconds"]
+          .forEach(id => {
+            document.getElementById(id).textContent = "00";
+          });
 
-    <div class="timer-box">
-      <span class="timer-number" id="minutes">00</span>
-      <span class="timer-label">MINUTES</span>
-    </div>
+        clearInterval(timerInterval);
+        return;
+      }
 
-    <div class="timer-box">
-      <span class="timer-number" id="seconds">00</span>
-      <span class="timer-label">SECONDS</span>
-    </div>
-  </div>
+      const days = Math.floor(difference / 86400000);
+      const hours = Math.floor((difference / 3600000) % 24);
+      const minutes = Math.floor((difference / 60000) % 60);
+      const seconds = Math.floor((difference / 1000) % 60);
 
-  <p id="new-year-message">✨ The magic is coming! ✨</p>
-</section>
+      document.getElementById("days").textContent =
+        String(days).padStart(2, "0");
 
-<script>
-  const newYear = new Date("2027-01-01T00:00:00");
+      document.getElementById("hours").textContent =
+        String(hours).padStart(2, "0");
 
-  function updateTimer() {
-    const difference = newYear.getTime() - Date.now();
+      document.getElementById("minutes").textContent =
+        String(minutes).padStart(2, "0");
 
-    if (difference <= 0) {
-      document.getElementById("new-year-message")
-        .textContent = "🎉 HAPPY NEW YEAR 2027! 🎉";
-
-      ["days", "hours", "minutes", "seconds"]
-        .forEach(id => {
-          document.getElementById(id).textContent = "00";
-        });
-
-      clearInterval(timerInterval);
-      return;
+      document.getElementById("seconds").textContent =
+        String(seconds).padStart(2, "0");
     }
 
-    const days = Math.floor(difference / 86400000);
-    const hours = Math.floor((difference / 3600000) % 24);
-    const minutes = Math.floor((difference / 60000) % 60);
-    const seconds = Math.floor((difference / 1000) % 60);
-
-    document.getElementById("days").textContent =
-      String(days).padStart(2, "0");
-
-    document.getElementById("hours").textContent =
-      String(hours).padStart(2, "0");
-
-    document.getElementById("minutes").textContent =
-      String(minutes).padStart(2, "0");
-
-    document.getElementById("seconds").textContent =
-      String(seconds).padStart(2, "0");
-  }
-
-  const timerInterval = setInterval(updateTimer, 1000);
-  updateTimer();
-</script>
-<!-- END NEW YEAR TIMER -->
-
-  </main>
+    const timerInterval = setInterval(updateTimer, 1000);
+    updateTimer();
+  </script>
 </body>
 </html>

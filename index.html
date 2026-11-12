@@ -68,6 +68,133 @@
         killsteishin-sudo
       </a>
     </p>
+    
+<!-- NEW YEAR COUNTDOWN TIMER -->
+<style>
+  .new-year-timer {
+    margin-top: 45px;
+    padding: 30px 20px;
+    border-radius: 22px;
+    text-align: center;
+    background: linear-gradient(135deg, #102a43, #182848);
+    border: 1px solid #38bdf8;
+    box-shadow: 0 0 30px rgba(56,189,248,.15);
+    color: white;
+  }
+
+  .new-year-timer h2 {
+    color: #facc15;
+    font-size: 29px;
+    margin: 0 0 10px;
+  }
+
+  .new-year-timer p {
+    color: #cbd5e1;
+  }
+
+  .timer-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin-top: 25px;
+  }
+
+  .timer-box {
+    background: rgba(255,255,255,.1);
+    padding: 18px 5px;
+    border-radius: 14px;
+  }
+
+  .timer-number {
+    display: block;
+    font-size: 32px;
+    font-weight: bold;
+    color: #fff;
+  }
+
+  .timer-label {
+    font-size: 11px;
+    color: #cbd5e1;
+  }
+
+  @media(max-width: 500px) {
+    .timer-grid { gap: 5px; }
+    .timer-number { font-size: 22px; }
+    .timer-box { padding: 12px 3px; }
+  }
+</style>
+
+<section class="new-year-timer">
+  <h2>🎄 NEW YEAR 2027 🎆</h2>
+  <p>Countdown to January 1, 2027</p>
+
+  <div class="timer-grid">
+    <div class="timer-box">
+      <span class="timer-number" id="days">00</span>
+      <span class="timer-label">DAYS</span>
+    </div>
+
+    <div class="timer-box">
+      <span class="timer-number" id="hours">00</span>
+      <span class="timer-label">HOURS</span>
+    </div>
+
+    <div class="timer-box">
+      <span class="timer-number" id="minutes">00</span>
+      <span class="timer-label">MINUTES</span>
+    </div>
+
+    <div class="timer-box">
+      <span class="timer-number" id="seconds">00</span>
+      <span class="timer-label">SECONDS</span>
+    </div>
+  </div>
+
+  <p id="new-year-message">✨ The magic is coming! ✨</p>
+</section>
+
+<script>
+  const newYear = new Date("2027-01-01T00:00:00");
+
+  function updateTimer() {
+    const difference = newYear.getTime() - Date.now();
+
+    if (difference <= 0) {
+      document.getElementById("new-year-message")
+        .textContent = "🎉 HAPPY NEW YEAR 2027! 🎉";
+
+      ["days", "hours", "minutes", "seconds"]
+        .forEach(id => {
+          document.getElementById(id).textContent = "00";
+        });
+
+      clearInterval(timerInterval);
+      return;
+    }
+
+    const days = Math.floor(difference / 86400000);
+    const hours = Math.floor((difference / 3600000) % 24);
+    const minutes = Math.floor((difference / 60000) % 60);
+    const seconds = Math.floor((difference / 1000) % 60);
+
+    document.getElementById("days").textContent =
+      String(days).padStart(2, "0");
+
+    document.getElementById("hours").textContent =
+      String(hours).padStart(2, "0");
+
+    document.getElementById("minutes").textContent =
+      String(minutes).padStart(2, "0");
+
+    document.getElementById("seconds").textContent =
+      String(seconds).padStart(2, "0");
+  }
+
+  const timerInterval = setInterval(updateTimer, 1000);
+  updateTimer();
+</script>
+<!-- END NEW YEAR TIMER -->
+
   </main>
 </body>
 </html>

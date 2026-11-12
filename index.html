@@ -1,19 +1,41 @@
 
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>My CV | Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My CV | Halloween Edition</title>
+
+  <script>
+    const now = new Date();
+    const preview = new URLSearchParams(location.search)
+      .get("preview") === "halloween";
+
+    const halloweenDay =
+      now.getFullYear() === 2026 &&
+      now.getMonth() === 10 &&
+      now.getDate() === 11;
+
+    if (halloweenDay || preview) {
+      document.documentElement.classList.add("halloween");
+    }
+  </script>
+
   <style>
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
+      min-height: 100vh;
       background: #0b1020;
       color: #f1f5f9;
       font-family: Arial, sans-serif;
       line-height: 1.6;
+      transition: background 0.5s, color 0.5s;
     }
+
     main {
       max-width: 850px;
       margin: 70px auto;
@@ -21,10 +43,24 @@
       background: #172033;
       border: 1px solid #334155;
       border-radius: 24px;
+      position: relative;
+      z-index: 1;
     }
-    h1 { font-size: 48px; margin-bottom: 5px; }
-    h2 { color: #38bdf8; margin-top: 35px; }
-    p { color: #cbd5e1; }
+
+    h1 {
+      font-size: 48px;
+      margin-bottom: 5px;
+    }
+
+    h2 {
+      color: #38bdf8;
+      margin-top: 35px;
+    }
+
+    p {
+      color: #cbd5e1;
+    }
+
     .tag {
       display: inline-block;
       padding: 8px 15px;
@@ -32,25 +68,177 @@
       border-radius: 20px;
       background: #26344c;
     }
-    a { color: #38bdf8; }
-    @media(max-width:600px) {
-      main { margin: 15px; padding: 25px; }
-      h1 { font-size: 34px; }
+
+    a {
+      color: #38bdf8;
+    }
+
+    .halloween-only {
+      display: none;
+    }
+
+    /* HALLOWEEN THEME */
+
+    .halloween body {
+      background:
+        radial-gradient(
+          circle at 50% 0%,
+          #642700 0%,
+          #210d18 45%,
+          #09030c 100%
+        );
+      color: #fff0df;
+    }
+
+    .halloween main {
+      background: rgba(25, 12, 27, 0.94);
+      border: 2px solid #ff7900;
+      box-shadow:
+        0 0 35px #ff790055,
+        inset 0 0 25px #ff790011;
+      animation: glow 3s ease-in-out infinite alternate;
+    }
+
+    .halloween h1 {
+      color: #ff8c00;
+      text-shadow: 0 0 20px #ff7900;
+    }
+
+    .halloween h2,
+    .halloween a {
+      color: #ffa32b;
+    }
+
+    .halloween p {
+      color: #f4d8c1;
+    }
+
+    .halloween .tag {
+      background: #402018;
+      border: 1px solid #a44b10;
+      color: #ffd6a3;
+    }
+
+    .halloween .halloween-only {
+      display: block;
+    }
+
+    .banner {
+      text-align: center;
+      font-size: 28px;
+      font-weight: bold;
+      color: #ffae42;
+      text-shadow: 0 0 18px #ff7900;
+      margin-bottom: 25px;
+    }
+
+    .moon {
+      text-align: center;
+      font-size: 65px;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    .pumpkins {
+      text-align: center;
+      font-size: 36px;
+      letter-spacing: 15px;
+      margin-top: 35px;
+    }
+
+    .ghost {
+      position: fixed;
+      font-size: 45px;
+      opacity: 0.6;
+      pointer-events: none;
+      animation: float 4s ease-in-out infinite;
+    }
+
+    .ghost.one {
+      top: 15%;
+      left: 5%;
+    }
+
+    .ghost.two {
+      bottom: 15%;
+      right: 5%;
+      animation-delay: 1s;
+    }
+
+    @keyframes glow {
+      from {
+        box-shadow: 0 0 15px #ff790044;
+      }
+      to {
+        box-shadow: 0 0 60px #ff790099;
+      }
+    }
+
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-18px);
+      }
+    }
+
+    @media (max-width: 600px) {
+      main {
+        margin: 15px;
+        padding: 25px;
+      }
+
+      h1 {
+        font-size: 34px;
+      }
+
+      .banner {
+        font-size: 21px;
+      }
+
+      .ghost {
+        display: none;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation: none !important;
+      }
     }
   </style>
 </head>
+
 <body>
+
+  <div class="halloween-only">
+    <div class="ghost one">👻</div>
+    <div class="ghost two">👻</div>
+  </div>
+
   <main>
+
+    <div class="halloween-only">
+      <div class="moon">🌕</div>
+      <div class="banner">
+        🎃 HAPPY HALLOWEEN 👻
+      </div>
+    </div>
+
     <h1>My Portfolio</h1>
     <p>Junior Developer | IT Enthusiast</p>
 
     <h2>About Me</h2>
     <p>
-      I'm passionate about technology, programming,
-      Docker, Linux and web development.
+      I'm passionate about technology,
+      programming, Docker, Linux and
+      web development.
     </p>
 
     <h2>Skills</h2>
+
     <span class="tag">HTML & CSS</span>
     <span class="tag">Git & GitHub</span>
     <span class="tag">Docker</span>
@@ -58,68 +246,29 @@
     <span class="tag">Networking</span>
 
     <h2>Projects</h2>
-    <p>Docker Web Server, Minecraft Server,
-       Nextcloud and GitLab.</p>
+
+    <p>
+      Docker Web Server, Minecraft Server,
+      Nextcloud and GitLab.
+    </p>
 
     <h2>Contact</h2>
+
     <p>
       GitHub:
       <a href="https://github.com/killsteishin-sudo">
         killsteishin-sudo
       </a>
     </p>
+
+    <div class="halloween-only">
+      <div class="pumpkins">🎃 🦇 🎃</div>
+      <p style="text-align:center">
+        Welcome to my spooky portfolio!
+      </p>
+    </div>
+
   </main>
-  
-<!-- Halloween theme: automatically expires on November 12 -->
-<script>
-  const today = new Date();
-  const halloweenDay =
-    today.getFullYear() === 2026 &&
-    today.getMonth() === 10 &&
-    today.getDate() === 11;
-
-  if (halloweenDay) {
-    const style = document.createElement("style");
-    style.textContent = `
-      body {
-        background: radial-gradient(circle at top, #562000, #090309 75%);
-        color: #fff3df;
-      }
-      main {
-        background: #1d101b;
-        border: 2px solid #ff7900;
-        box-shadow: 0 0 55px #ff790055;
-        animation: glow 3s infinite alternate;
-      }
-      h1 {
-        color: #ff8c00;
-        text-shadow: 0 0 22px #ff7900;
-      }
-      h2, a { color: #ff9d2e; }
-      .tag {
-        background: #422016;
-        border: 1px solid #ff7900;
-      }
-      @keyframes glow {
-        from { box-shadow: 0 0 15px #ff790044; }
-        to { box-shadow: 0 0 60px #ff790099; }
-      }
-      .halloween-banner {
-        text-align: center;
-        font-size: 24px;
-        padding: 18px;
-        color: #ffae42;
-        font-weight: bold;
-      }
-    `;
-    document.head.appendChild(style);
-
-    const banner = document.createElement("div");
-    banner.className = "halloween-banner";
-    banner.textContent = "🎃 HAPPY HALLOWEEN 👻";
-    document.querySelector("main").prepend(banner);
-  }
-</script>
 
 </body>
 </html>

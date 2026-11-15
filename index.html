@@ -1,218 +1,52 @@
-
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="uk">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>My CV | Portfolio</title>
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#08090d" />
+  <meta name="description" content="Сергій Горбатов — персональне CV, вебтехнології та любов до автомобілів." />
+  <title>Сергій Горбатов — Automotive CV</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <style>
-    * { box-sizing: border-box; }
-
-    body {
-      margin: 0;
-      background: #0b1020;
-      color: #f1f5f9;
-      font-family: Arial, sans-serif;
-      line-height: 1.6;
-    }
-
-    main {
-      max-width: 850px;
-      margin: 70px auto;
-      padding: 45px;
-      background: #172033;
-      border: 1px solid #334155;
-      border-radius: 24px;
-    }
-
-    h1 {
-      font-size: 48px;
-      margin-bottom: 5px;
-    }
-
-    h2 {
-      color: #38bdf8;
-      margin-top: 35px;
-    }
-
-    p { color: #cbd5e1; }
-
-    .tag {
-      display: inline-block;
-      padding: 8px 15px;
-      margin: 5px;
-      border-radius: 20px;
-      background: #26344c;
-    }
-
-    a { color: #38bdf8; }
-
-    .new-year-timer {
-      margin-top: 45px;
-      padding: 30px 20px;
-      border-radius: 22px;
-      text-align: center;
-      background: linear-gradient(135deg, #102a43, #182848);
-      border: 1px solid #38bdf8;
-      box-shadow: 0 0 30px rgba(56,189,248,.15);
-      color: white;
-    }
-
-    .new-year-timer h2 {
-      color: #facc15;
-      font-size: 29px;
-      margin: 0 0 10px;
-    }
-
-    .new-year-timer p { color: #cbd5e1; }
-
-    .timer-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 12px;
-      margin-top: 25px;
-    }
-
-    .timer-box {
-      background: rgba(255,255,255,.1);
-      padding: 18px 5px;
-      border-radius: 14px;
-    }
-
-    .timer-number {
-      display: block;
-      font-size: 32px;
-      font-weight: bold;
-      color: #fff;
-    }
-
-    .timer-label {
-      font-size: 11px;
-      color: #cbd5e1;
-    }
-
-    @media (max-width: 600px) {
-      main {
-        margin: 15px;
-        padding: 25px;
-      }
-
-      h1 { font-size: 34px; }
-    }
-
-    @media (max-width: 500px) {
-      .timer-grid { gap: 5px; }
-      .timer-number { font-size: 22px; }
-      .timer-box { padding: 12px 3px; }
-    }
+    :root { --bg:#08090d; --surface:#11131a; --surface2:#191b23; --text:#f4f5f8; --muted:#a2a5b2; --line:rgba(255,255,255,.12); --red:#ed2839; --red2:#ff5966; }
+    *{box-sizing:border-box} html{scroll-behavior:smooth} body{margin:0;background:var(--bg);color:var(--text);font-family:Manrope,Arial,sans-serif;line-height:1.6;overflow-x:hidden} a{color:inherit;text-decoration:none} button{font:inherit} ::selection{background:var(--red);color:white}
+    .container{width:min(1180px,calc(100% - 48px));margin:auto} .eyebrow{font-size:12px;letter-spacing:.26em;text-transform:uppercase;font-weight:800;color:var(--red2)}
+    header{position:absolute;top:0;left:0;right:0;z-index:20;border-bottom:1px solid rgba(255,255,255,.14);backdrop-filter:blur(12px);background:rgba(5,6,10,.32)}
+    .nav{height:82px;display:flex;align-items:center;justify-content:space-between;gap:24px}.brand{font-family:Oswald,sans-serif;font-size:27px;font-weight:700;letter-spacing:.035em}.brand b{color:var(--red)}.brand small{font-family:Manrope,sans-serif;display:block;font-size:9px;letter-spacing:.34em;color:#bcbec6;font-weight:700;margin-top:-5px}
+    .links{display:flex;gap:32px;align-items:center}.links a{font-size:13px;font-weight:700;color:#d7d8dd;transition:color .2s}.links a:hover{color:var(--red2)}.nav-tag{border:1px solid rgba(255,255,255,.35);padding:9px 17px;font-size:11px;font-weight:800;letter-spacing:.12em}
+    .hero{min-height:760px;height:100svh;max-height:1000px;position:relative;display:flex;align-items:center;isolation:isolate;overflow:hidden;background:#111}
+    .hero:before{content:"";position:absolute;inset:0;z-index:-2;background:url('https://images.unsplash.com/photo-1555215695-3004980ad54e?auto=format&fit=crop&w=2200&q=85') center 56%/cover no-repeat;transform:scale(1.03)}
+    .hero:after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(4,5,9,.98) 0%,rgba(4,5,9,.91) 28%,rgba(4,5,9,.45) 65%,rgba(4,5,9,.24) 100%),linear-gradient(0deg,#08090d 0%,transparent 24%)}
+    .hero-inner{padding-top:110px}.hero .eyebrow{display:flex;align-items:center;gap:12px}.hero .eyebrow:before{content:"";display:block;width:34px;height:2px;background:var(--red)}
+    h1,h2,h3,p{margin-top:0} h1,h2,h3{font-family:Oswald,Impact,sans-serif;text-transform:uppercase} h1{font-size:clamp(68px,10.5vw,155px);font-weight:600;line-height:.94;letter-spacing:-.035em;margin:30px 0 25px} h1 span{color:var(--red)}
+    .hero-desc{max-width:530px;font-size:17px;color:#c5c6cc;line-height:1.85;margin-bottom:34px}.actions{display:flex;gap:14px;flex-wrap:wrap}.btn{display:inline-flex;align-items:center;justify-content:center;gap:13px;padding:15px 23px;font-size:12px;font-weight:800;letter-spacing:.09em;text-transform:uppercase;transition:transform .2s,background .2s;border:1px solid transparent}.btn:hover{transform:translateY(-3px)}.btn-primary{background:var(--red);color:#fff}.btn-primary:hover{background:#ff3a4b}.btn-outline{border-color:rgba(255,255,255,.38);background:rgba(255,255,255,.03)}.arrow{font-size:20px;line-height:0}
+    .hero-bottom{position:absolute;bottom:35px;left:0;right:0}.hero-bottom .container{display:flex;justify-content:space-between;align-items:center}.hero-bottom span{font-size:10px;letter-spacing:.18em;font-weight:800;color:#c3c4ca}.scroll-mark{display:flex;gap:12px;align-items:center}.scroll-mark:before{content:"";width:45px;height:1px;background:var(--red)}
+    section{padding:110px 0}.section-head{display:flex;align-items:end;justify-content:space-between;gap:25px;margin-bottom:43px}.section-head h2{font-size:clamp(43px,6vw,78px);line-height:1.05;margin:11px 0 0;font-weight:600}.section-head h2 em{font-style:normal;color:var(--red)}.section-head p{max-width:385px;color:var(--muted);font-size:14px;margin-bottom:7px}
+    .about-grid{display:grid;grid-template-columns:1.08fr .92fr;gap:25px}.about-copy{padding:46px;background:linear-gradient(140deg,#171922,#101116);border:1px solid var(--line);position:relative;overflow:hidden}.about-copy:after{content:"01";font-family:Oswald;font-size:220px;position:absolute;right:-10px;bottom:-110px;color:rgba(255,255,255,.025);pointer-events:none}.about-copy h3{font-size:40px;line-height:1.2;margin:0 0 23px}.about-copy p{color:#aeb0ba;max-width:550px;font-size:15px}.accent-line{height:3px;width:55px;background:var(--red);margin:0 0 27px}.about-stats{display:grid;grid-template-columns:1fr 1fr;gap:20px}.stat{padding:35px 30px;background:#12141b;border:1px solid var(--line);display:flex;flex-direction:column;justify-content:space-between;min-height:205px}.stat strong{font-family:Oswald;font-size:54px;line-height:1;color:#fff}.stat strong span{color:var(--red)}.stat p{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#aeb0ba;font-weight:800;margin:15px 0 0}
+    .skills{background:#0d0e13;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}.skill-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.skill-card{border:1px solid var(--line);background:linear-gradient(150deg,#171921,#111218);padding:31px;min-height:245px;position:relative;transition:transform .25s,border-color .25s}.skill-card:hover{transform:translateY(-7px);border-color:rgba(237,40,57,.55)}.skill-num{font-family:Oswald;font-size:14px;color:var(--red);letter-spacing:.1em}.skill-icon{font-size:33px;display:block;margin:24px 0 12px}.skill-card h3{font-size:26px;font-weight:500;margin-bottom:10px}.skill-card p{font-size:13px;color:var(--muted);margin:0}
+    .project-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:20px}.project{position:relative;overflow:hidden;min-height:410px;display:flex;align-items:end;background:#1b1b1f;isolation:isolate}.project:before{content:"";position:absolute;inset:0;z-index:-2;background-size:cover;background-position:center;transition:transform .5s}.project:hover:before{transform:scale(1.07)}.project:first-child:before{background-image:url('https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1200&q=85')}.project:nth-child(2):before{background-image:url('https://images.unsplash.com/photo-1493238792000-8113da705763?auto=format&fit=crop&w=1000&q=85')}.project:after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(0deg,rgba(0,0,0,.94),rgba(0,0,0,.03) 85%)}.project-info{padding:36px}.project-info h3{font-size:36px;margin:8px 0 8px}.project-info p{font-size:13px;color:#d3d3d7;margin:0}.project-label{font-size:11px;font-weight:800;letter-spacing:.16em;color:#ff6471}
+    .interests{background:#101117}.interest-row{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.interest{border-top:2px solid var(--red);padding:26px 0}.interest h3{font-size:32px;font-weight:500;margin:0 0 8px}.interest p{font-size:14px;color:var(--muted);margin:0}
+    .contact{position:relative;text-align:center;overflow:hidden}.contact:before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 50% 100%,rgba(237,40,57,.15),transparent 58%);pointer-events:none}.contact h2{font-size:clamp(54px,9vw,115px);line-height:1.04;margin:18px 0 22px}.contact h2 span{color:var(--red)}.contact p{color:var(--muted);max-width:520px;margin:0 auto 30px}
+    footer{border-top:1px solid var(--line);padding:25px 0;background:#07080c}.footer-row{display:flex;justify-content:space-between;gap:15px;align-items:center;color:#8e9099;font-size:12px}.footer-row b{color:#fff}
+    .reveal{opacity:0;transform:translateY(28px);transition:opacity .65s,transform .65s}.reveal.visible{opacity:1;transform:none}
+    @media(max-width:850px){.links{gap:15px}.links a{font-size:11px}.nav-tag{display:none}.hero{min-height:690px}.about-grid,.project-grid{grid-template-columns:1fr}.skill-grid{grid-template-columns:repeat(2,1fr)}.section-head{display:block}.section-head p{margin-top:20px}.project{min-height:330px}}
+    @media(max-width:570px){.container{width:min(100% - 32px,1180px)}.nav{height:70px}.brand{font-size:22px}.links{gap:14px}.links a:nth-child(2),.links a:nth-child(3){display:none}.hero{min-height:700px;height:93svh}.hero:before{background-position:60% center}.hero:after{background:linear-gradient(90deg,rgba(4,5,9,.96),rgba(4,5,9,.6)),linear-gradient(0deg,#08090d,transparent 30%)}h1{font-size:clamp(61px,17vw,95px)}.hero-desc{font-size:14px;max-width:390px}.hero-bottom span{font-size:9px}.scroll-mark{display:none}section{padding:75px 0}.section-head h2{font-size:48px}.about-copy{padding:29px}.about-copy h3{font-size:32px}.about-stats{gap:12px}.stat{padding:23px;min-height:155px}.stat strong{font-size:42px}.skill-grid,.interest-row{grid-template-columns:1fr}.skill-card{min-height:200px}.interest{padding:18px 0}.footer-row{flex-direction:column;text-align:center}.contact h2{font-size:57px}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.reveal{opacity:1;transform:none;transition:none}*{animation-duration:.01ms!important}}
   </style>
 </head>
-
 <body>
+  <header><div class="container nav"><a class="brand" href="#top">HORBATOV<b>.</b><small>AUTOMOTIVE CV</small></a><nav class="links" aria-label="Головна навігація"><a href="#about">ПРО МЕНЕ</a><a href="#skills">НАВИЧКИ</a><a href="#projects">ПРОЄКТИ</a><a href="#contact">КОНТАКТИ</a></nav><span class="nav-tag">UKRAINE / 2026</span></div></header>
   <main>
-    <h1>My Portfolio</h1>
-    <p>Junior Developer | IT Enthusiast | Cybersecurity Student</p>
-
-    <h2>About Me</h2>
-    <p>
-      I'm passionate about technology, programming,
-      Docker, Linux, cybersecurity and web development.
-    </p>
-
-    <h2>Skills</h2>
-    <span class="tag">HTML & CSS</span>
-    <span class="tag">Git & GitHub</span>
-    <span class="tag">Docker</span>
-    <span class="tag">Linux</span>
-    <span class="tag">Networking</span>
-    <span class="tag">Cybersecurity</span>
-
-    <h2>Projects</h2>
-    <p>
-      Docker Web Server, Minecraft Server,
-      Nextcloud and GitLab.
-    </p>
-
-    <h2>Contact</h2>
-    <p>
-      GitHub:
-      <a href="https://github.com/killsteishin-sudo">
-        killsteishin-sudo
-      </a>
-    </p>
-
-    <!-- NEW YEAR COUNTDOWN TIMER -->
-    <section class="new-year-timer">
-      <h2>🎄 NEW YEAR 2027 🎆</h2>
-      <p>Countdown to January 1, 2027</p>
-
-      <div class="timer-grid">
-        <div class="timer-box">
-          <span class="timer-number" id="days">00</span>
-          <span class="timer-label">DAYS</span>
-        </div>
-
-        <div class="timer-box">
-          <span class="timer-number" id="hours">00</span>
-          <span class="timer-label">HOURS</span>
-        </div>
-
-        <div class="timer-box">
-          <span class="timer-number" id="minutes">00</span>
-          <span class="timer-label">MINUTES</span>
-        </div>
-
-        <div class="timer-box">
-          <span class="timer-number" id="seconds">00</span>
-          <span class="timer-label">SECONDS</span>
-        </div>
-      </div>
-
-      <p id="new-year-message">✨ The magic is coming! ✨</p>
-    </section>
-    <!-- END NEW YEAR TIMER -->
+    <section class="hero" id="top"><div class="container hero-inner"><div class="eyebrow">Персональне портфоліо / 2026</div><h1>СЕРГІЙ<br><span>ГОРБАТОВ</span></h1><p class="hero-desc">Технології. Автомобілі. Рух уперед.<br>Вивчаю веброзробку, працюю з Linux і створюю власні проєкти. Натхнення знаходжу у світі автоспорту.</p><div class="actions"><a class="btn btn-primary" href="#about">ДІЗНАТИСЯ БІЛЬШЕ <span class="arrow">↗</span></a><a class="btn btn-outline" href="#projects">МОЇ ПРОЄКТИ <span class="arrow">→</span></a></div></div><div class="hero-bottom"><div class="container"><span>DRIVEN BY PASSION. BUILT WITH CODE.</span><span class="scroll-mark">ГОРТАЙ НИЖЧЕ</span></div></div></section>
+    <section id="about"><div class="container"><div class="section-head reveal"><div><div class="eyebrow">01 / ЗНАЙОМСТВО</div><h2>ПРО <em>МЕНЕ</em></h2></div><p>Поєдную інтерес до сучасних технологій із захопленням автомобільною культурою.</p></div><div class="about-grid"><div class="about-copy reveal"><div class="accent-line"></div><h3>СТВОРЮЮ СВОЄ.<br>НАВЧАЮСЯ ЩОДНЯ.</h3><p>Мене звати Сергій Горбатов. Я цікавлюся інформаційними технологіями, веброзробкою та адмініструванням серверів. Люблю розбиратися, як працюють сайти й сервіси — від HTML-сторінки до розгортання в хмарі.</p><p>Окрема частина мого життя — автомобілі. Особливо подобаються BMW, дрифт, ралі та технічна сторона автоспорту.</p><a class="btn btn-outline" href="#skills" style="margin-top:14px">МОЇ НАВИЧКИ <span class="arrow">↗</span></a></div><div class="about-stats"><div class="stat reveal"><strong>HTML<span>.</span></strong><p>Структура вебсторінок</p></div><div class="stat reveal"><strong>CSS<span>.</span></strong><p>Стилі та адаптивність</p></div><div class="stat reveal"><strong>LINUX<span>.</span></strong><p>Робота із сервером</p></div><div class="stat reveal"><strong>AWS<span>.</span></strong><p>Хмарний хостинг</p></div></div></div></div></section>
+    <section class="skills" id="skills"><div class="container"><div class="section-head reveal"><div><div class="eyebrow">02 / ІНСТРУМЕНТИ</div><h2>МОЇ <em>НАВИЧКИ</em></h2></div><p>Технології, які вивчаю та використовую у своїх навчальних проєктах.</p></div><div class="skill-grid"><article class="skill-card reveal"><span class="skill-num">01 — FRONTEND</span><span class="skill-icon">⌘</span><h3>HTML / CSS</h3><p>Створення структури сайтів, оформлення сторінок і адаптивний дизайн.</p></article><article class="skill-card reveal"><span class="skill-num">02 — SYSTEM</span><span class="skill-icon">▣</span><h3>UBUNTU / LINUX</h3><p>Термінал, файлові системи, встановлення та налаштування сервісів.</p></article><article class="skill-card reveal"><span class="skill-num">03 — WEB SERVER</span><span class="skill-icon">↗</span><h3>NGINX</h3><p>Публікація сайтів, конфігурація вебсервера та HTTPS.</p></article><article class="skill-card reveal"><span class="skill-num">04 — CONTAINERS</span><span class="skill-icon">⬡</span><h3>DOCKER</h3><p>Контейнери, образи та запуск вебзастосунків.</p></article><article class="skill-card reveal"><span class="skill-num">05 — CLOUD</span><span class="skill-icon">☁</span><h3>AMAZON AWS</h3><p>Віртуальні сервери EC2 та розміщення вебпроєктів у хмарі.</p></article><article class="skill-card reveal"><span class="skill-num">06 — LEARNING</span><span class="skill-icon">⚙</span><h3>KUBERNETES</h3><p>Основи керування контейнеризованими застосунками.</p></article></div></div></section>
+    <section id="projects"><div class="container"><div class="section-head reveal"><div><div class="eyebrow">03 / ПРАКТИКА</div><h2>МОЇ <em>ПРОЄКТИ</em></h2></div><p>Навчальні роботи, у яких поєдную дизайн, вебтехнології та інфраструктуру.</p></div><div class="project-grid"><article class="project reveal"><div class="project-info"><span class="project-label">WEB DESIGN / AUTOMOTIVE</span><h3>AUTOVERSE</h3><p>Концепт автомобільного вебсайту в сучасному стилі.</p></div></article><article class="project reveal"><div class="project-info"><span class="project-label">AWS / NGINX / HTTPS</span><h3>PERSONAL CV</h3><p>Персональне портфоліо, розміщене на Ubuntu-сервері AWS.</p></div></article></div></div></section>
+    <section class="interests"><div class="container"><div class="section-head reveal"><div><div class="eyebrow">04 / ЗАХОПЛЕННЯ</div><h2>ЩО МЕНЕ <em>РУХАЄ</em></h2></div></div><div class="interest-row"><div class="interest reveal"><h3>01 / BMW</h3><p>Дизайн, інженерія та характер автомобілів.</p></div><div class="interest reveal"><h3>02 / DRIFT</h3><p>Контроль, точність і видовищність автоспорту.</p></div><div class="interest reveal"><h3>03 / RALLY</h3><p>Швидкість, техніка та виклики різних трас.</p></div></div></div></section>
+    <section class="contact" id="contact"><div class="container reveal"><div class="eyebrow">05 / НА ЗВ’ЯЗКУ</div><h2>РУХАЮСЯ<br><span>ВПЕРЕД.</span></h2><p>Від першої HTML-сторінки до власного сайту в хмарі. Це тільки початок.</p><a class="btn btn-primary" href="#top">НА ПОЧАТОК <span class="arrow">↑</span></a></div></section>
   </main>
-
-  <script>
-    const newYear = new Date("2027-01-01T00:00:00");
-
-    function updateTimer() {
-      const difference = newYear.getTime() - Date.now();
-
-      if (difference <= 0) {
-        document.getElementById("new-year-message")
-          .textContent = "🎉 HAPPY NEW YEAR 2027! 🎉";
-
-        ["days", "hours", "minutes", "seconds"]
-          .forEach(id => {
-            document.getElementById(id).textContent = "00";
-          });
-
-        clearInterval(timerInterval);
-        return;
-      }
-
-      const days = Math.floor(difference / 86400000);
-      const hours = Math.floor((difference / 3600000) % 24);
-      const minutes = Math.floor((difference / 60000) % 60);
-      const seconds = Math.floor((difference / 1000) % 60);
-
-      document.getElementById("days").textContent =
-        String(days).padStart(2, "0");
-
-      document.getElementById("hours").textContent =
-        String(hours).padStart(2, "0");
-
-      document.getElementById("minutes").textContent =
-        String(minutes).padStart(2, "0");
-
-      document.getElementById("seconds").textContent =
-        String(seconds).padStart(2, "0");
-    }
-
-    const timerInterval = setInterval(updateTimer, 1000);
-    updateTimer();
-  </script>
+  <footer><div class="container footer-row"><span><b>HORBATOV.</b> AUTOMOTIVE CV</span><span>© 2026 СЕРГІЙ ГОРБАТОВ · ЗРОБЛЕНО З ІНТЕРЕСОМ ДО ТЕХНОЛОГІЙ</span></div></footer>
+  <script>const observer=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target)}}),{threshold:.1});document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));</script>
 </body>
 </html>
